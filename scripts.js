@@ -29,13 +29,13 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             title: "ColorCatcher",
             description: "A classic arcade-style brick breaker game built in Unity with C#",
-            link: "#https://dmurphydev.github.io/ColorCatcher/",
+            link: "https://dmurphydev.github.io/ColorCatcher/",
             image: "assets/ColorCatcherThumbnail.jpg"
         },
         {
             title: "Portfolio Website",
             description: "My personal portfolio website built using Tailwind CSS and JavaScript.",
-            link: "#https://dommurphy0512.github.io/portfolio-website/",
+            link: "https://dommurphy0512.github.io/portfolio-website/",
             image: "https://dommurphy0512.github.io/portfolio-website/"
         },
         {
