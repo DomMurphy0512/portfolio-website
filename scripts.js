@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     toggleButton.style.cursor = 'pointer';
     document.body.appendChild(toggleButton);
 
-    //Toggle dark mode on click (fixed class name)
+    // Toggle dark mode on click
     toggleButton.addEventListener('click', () => {
         document.body.classList.toggle('dark-mode');
     });
@@ -24,19 +24,19 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    //Project Data
+    // Project Data
     const projects = [
         {
             title: "ColorCatcher",
             description: "A classic arcade-style brick breaker game built in Unity with C#",
             link: "https://dmurphydev.github.io/ColorCatcher/",
-            image: "assets/ColorCatcherThumbnail.jpg"
+            image: "assets/ColorCatcherThumbnail.jpg"  // Make sure this image exists!
         },
         {
             title: "Portfolio Website",
             description: "My personal portfolio website built using Tailwind CSS and JavaScript.",
             link: "https://dommurphy0512.github.io/portfolio-website/",
-            image: "https://dommurphy0512.github.io/portfolio-website/"
+            image: "https://via.placeholder.com/300"  // Replace with actual image URL
         },
         {
             title: "To-Do List App",
@@ -55,9 +55,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         projectCard.innerHTML = `
             <img src="${project.image}" alt="${project.title}" class="w-full h-40 object-cover rounded-md">
-            <h3 class="text-x1 font-semibold mt-3">${project.title}</h3>
+            <h3 class="text-xl font-semibold mt-3">${project.title}</h3>
             <p class="mt-2 text-gray-700">${project.description}</p>
-            <a href="${project.link}" class="mt-3 inline-block bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">View Project</a>
+            <a href="${project.link}" target="_blank" class="mt-3 inline-block bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">View Project</a>
         `;
 
         projectContainer.appendChild(projectCard);
