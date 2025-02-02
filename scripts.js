@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
     toggleButton.style.cursor = 'pointer';
     document.body.appendChild(toggleButton);
 
-    // Toggle dark mode on click
     toggleButton.addEventListener('click', () => {
         document.body.classList.toggle('dark-mode');
     });
@@ -24,19 +23,38 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Project Data
+    // Fade-in sections when scrolling
+    const sections = document.querySelectorAll("section");
+
+    const fadeInOnScroll = () => {
+        sections.forEach(section => {
+            const sectionTop = section.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+
+            if (sectionTop < windowHeight * 0.85) {
+                section.classList.remove("opacity-0");
+                section.classList.add("opacity-100");
+            }
+        });
+    };
+
+    // Run function on page load and scroll
+    fadeInOnScroll();
+    window.addEventListener("scroll", fadeInOnScroll);
+
+    // Render Projects Dynamically
     const projects = [
         {
             title: "ColorCatcher",
             description: "A classic arcade-style brick breaker game built in Unity with C#",
             link: "https://dmurphydev.github.io/ColorCatcher/",
-            image: "assets/ColorCatcherThumbnail.jpg"  // Make sure this image exists!
+            image: "assets/ColorCatcherThumbnail.jpg"
         },
         {
             title: "Portfolio Website",
             description: "My personal portfolio website built using Tailwind CSS and JavaScript.",
             link: "https://dommurphy0512.github.io/portfolio-website/",
-            image: "https://via.placeholder.com/300"  // Replace with actual image URL
+            image: "https://via.placeholder.com/300"
         },
         {
             title: "To-Do List App",
@@ -46,12 +64,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     ];
 
-    // Render Projects
     const projectContainer = document.getElementById("projects-container");
 
     projects.forEach(project => {
         const projectCard = document.createElement("div");
-        projectCard.classList.add("bg-gray-100", "p-4", "rounded-lg", "shadow-lg", "text-center");
+        projectCard.classList.add("bg-gray-100", "p-4", "rounded-lg", "shadow-lg", "text-center", "opacity-0", "transition-all", "duration-1000");
 
         projectCard.innerHTML = `
             <img src="${project.image}" alt="${project.title}" class="w-full h-40 object-cover rounded-md">
@@ -62,4 +79,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
         projectContainer.appendChild(projectCard);
     });
+
+    // Fade-in projects after they are loaded
+    setTimeout(() => {
+        document.querySelectorAll("#projects-container div").forEach((card, index) => {
+            setTimeout(() => {
+                card.classList.remove("opacity-0");
+                card.classList.add("opacity-100");
+            }, index * 200);
+        });
+    }, 500);
 });
