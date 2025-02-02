@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
             title: "Portfolio Website",
             description: "My personal portfolio website built using Tailwind CSS and JavaScript.",
             link: "https://dommurphy0512.github.io/portfolio-website/",
-            image: "https://via.placeholder.com/300"
+            image: "assets/PortfolioWebsiteThumbnail.jpg"
         },
         {
             title: "To-Do List App",
